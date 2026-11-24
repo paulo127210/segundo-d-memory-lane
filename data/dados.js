@@ -19,9 +19,34 @@ window.DADOS = {
   "tituloAlbuns": "Álbuns da turma",
   "galeria": [
     {
+      "id": "g-aniversario",
+      "src": "img/galeria-aniversario.jpg",
+      "legenda": "aniversário da Bia"
+    },
+    {
+      "id": "g-visita",
+      "src": "img/galeria-visita-tecnica.jpg",
+      "legenda": "visita técnica Ds"
+    },
+    {
+      "id": "g-futebol",
+      "src": "img/galeria-futebol.jpg",
+      "legenda": "a gente ganhou!"
+    },
+    {
       "id": "g-fisica",
       "src": "img/aula-fisica.jpg",
       "legenda": "aula de física"
+    },
+    {
+      "id": "g-festa",
+      "src": "img/galeria-festa-da-turma.jpg",
+      "legenda": "festa da turma"
+    },
+    {
+      "id": "g-araucaria",
+      "src": "img/galeria-araucaria.jpg",
+      "legenda": "a nossa araucária."
     }
   ],
   "linhaDoTempo": [
@@ -332,5 +357,16 @@ window.DADOS = {
       "descricao": "",
       "fotos": []
     }
-  ]
+  ],
+  "cartaTitulo": "Uma carta para você",
+  "cartaTexto": "Que bom que você chegou! Este caderno guarda um pedacinho de cada um de nós. Aproveite.",
+  "codigoClasse": "Turma2D",
+  "codigoAmizade": "true",
+  "codigoMemorias": "infinitas",
+  "codigoHistorias": "muitas",
+  "codigoFuturo": "ainda estamos escrevendo",
+  "despedidaTitulo": "Até a próxima,",
+  "despedidaDestaque": "turma D",
+  "despedidaTexto": "Que cada vez que você abrir esta página, o cheiro do recreio volte. Guardamos tudo com carinho — e com um toque de saudade.",
+  "despedidaAssinatura": "com amor de quem vai sentir falta"
 };

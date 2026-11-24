@@ -150,6 +150,29 @@ button { font: inherit; cursor: pointer; }
 
 .vazio { color: var(--tinta-suave); font-style: italic; }
 
+/* Carta */
+.carta { padding-top: 0; padding-bottom: 1rem; }
+.carta-papel {
+  max-width: 560px; margin: 0 auto; padding: 1.6rem 1.8rem; transform: rotate(-.6deg);
+  background-color: #fffdf6; box-shadow: var(--sombra);
+  background-image: repeating-linear-gradient(transparent 0 27px, rgba(187, 90, 63, .18) 27px 28px);
+}
+.carta-titulo { font-family: var(--mao); font-size: 1.9rem; color: var(--terracota); margin: 0 0 .3rem; }
+.carta-papel p { margin: 0; line-height: 28px; }
+
+/* Despedida */
+.despedida { text-align: center; }
+.codigo {
+  text-align: left; max-width: 560px; margin: 0 auto 3rem; padding: 1.4rem 1.6rem;
+  background: #2f2a24; color: #f3ead9; border-radius: 8px; overflow-x: auto;
+  font-family: Consolas, "Courier New", monospace; font-size: .95rem; line-height: 1.7; box-shadow: var(--sombra);
+}
+.c-cinza { color: #a59c8f; } .c-roxo { color: #d4a5ff; } .c-laranja { color: #f0a868; } .c-verde { color: #b5d48c; }
+.despedida-titulo { font-family: var(--serifa); font-weight: 400; font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0 0 1rem; line-height: 1.1; }
+.despedida-titulo em { color: var(--terracota); }
+.despedida-texto { max-width: 36rem; margin: 0 auto 1rem; color: var(--tinta-suave); font-size: 1.1rem; }
+.assinatura { font-family: var(--mao); font-size: 1.7rem; color: var(--terracota); margin: 0; }
+
 /* Rodapé */
 .rodape { text-align: center; padding: 3rem 1rem 6rem; color: var(--tinta-suave); font-size: .9rem; border-top: 1px solid var(--linha); }
 

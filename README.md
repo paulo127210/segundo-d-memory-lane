@@ -1,6 +1,6 @@
 # Caderno de Memórias do 2º Ano D
 
-Site do 2º Ano D do Colégio Estadual Rodolpho Zaninelli. Ele reúne galeria de fotos, linha do tempo, turma, frases e álbuns. Foi feito só com HTML, CSS e JavaScript, sem precisar instalar nada, e funciona no GitHub Pages.
+Site do 2º Ano D do Colégio Estadual Rodolpho Zaninelli. Ele reúne uma carta de boas-vindas, galeria de fotos, linha do tempo, turma, frases, álbuns (com fotos e vídeos) e uma despedida com o código Turma2D.java. Foi feito só com HTML, CSS e JavaScript, sem precisar instalar nada, e funciona no GitHub Pages.
 
 ## Estrutura
 
