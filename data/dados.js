@@ -56,70 +56,70 @@ window.DADOS = {
       "nome": "Anabelle",
       "apelido": "",
       "frase": "A talentosa da turma💗",
-      "foto": ""
+      "foto": "img/alunos/anabelle.jpg"
     },
     {
       "id": "a2",
       "nome": "Anna Flávia",
       "apelido": "",
       "frase": "A casca - 1/2 da dupla 🍬",
-      "foto": ""
+      "foto": "img/alunos/anna-flavia.jpg"
     },
     {
       "id": "a3",
       "nome": "Barbara",
       "apelido": "",
       "frase": "A inquieta que movimenta a sala💗",
-      "foto": ""
+      "foto": "img/alunos/barbara.jpg"
     },
     {
       "id": "a4",
       "nome": "Bernardo",
       "apelido": "",
       "frase": "O resenhador oficial da sala",
-      "foto": ""
+      "foto": "img/alunos/bernardo.jpg"
     },
     {
       "id": "a5",
       "nome": "Cauã",
       "apelido": "",
       "frase": "O que nunca perde o primeiro lugar",
-      "foto": ""
+      "foto": "img/alunos/caua.jpg"
     },
     {
       "id": "a6",
       "nome": "Daniel",
       "apelido": "",
       "frase": "O futuro campeão da sala🥊",
-      "foto": ""
+      "foto": "img/alunos/daniel.jpg"
     },
     {
       "id": "a7",
       "nome": "Derick",
       "apelido": "",
       "frase": "o rei da bagunça",
-      "foto": ""
+      "foto": "img/alunos/derick.jpg"
     },
     {
       "id": "a8",
       "nome": "Enzo",
       "apelido": "",
       "frase": "O hacker que ninguém entende💻",
-      "foto": ""
+      "foto": "img/alunos/enzo.jpg"
     },
     {
       "id": "a9",
       "nome": "Ester Fernandes",
       "apelido": "",
       "frase": "E a bala - 1/2 da dupla 🍭",
-      "foto": ""
+      "foto": "img/alunos/ester-fernandes.jpg"
     },
     {
       "id": "a10",
       "nome": "Fabiana",
       "apelido": "",
       "frase": "a que lembra de tudo💗",
-      "foto": ""
+      "foto": "img/alunos/fabiana.jpg"
     },
     {
       "id": "a11",
