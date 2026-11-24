@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2º Ano D | Caderno de Memórias</title>
+  <meta name="description" content="Caderno de memórias do 2º Ano D do Colégio Estadual Rodolpho Zaninelli.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <div id="aviso-rascunho" class="aviso" hidden>
+    Você está vendo alterações salvas só neste navegador. Para publicar, use <strong>Baixar dados</strong> e envie o arquivo para o GitHub.
+  </div>
+
+  <header class="topo">
+    <a class="marca" href="#inicio">
+      <span class="selo" data-campo="letra"></span>
+      <span>
+        <strong class="marca-nome" data-campo="escola"></strong>
+        <small data-campo="subtitulo"></small>
+      </span>
+    </a>
+    <button class="menu-botao" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">☰</button>
+    <nav id="menu" class="menu">
+      <a href="#galeria">Galeria</a>
+      <a href="#linha-do-tempo">Linha do tempo</a>
+      <a href="#turma">Turma</a>
+      <a href="#frases">Frases</a>
+      <a href="#albuns">Álbuns</a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section id="inicio" class="capa">
+      <p class="rabisco" data-campo="rabisco"></p>
+      <p class="sobretitulo">Ano letivo <span data-campo="ano"></span></p>
+      <h1 class="titulo"><span data-campo="serie"></span> <em data-campo="letra"></em></h1>
+      <p class="descricao" data-campo="descricao"></p>
+      <figure class="foto-fita">
+        <span class="fita" aria-hidden="true"></span>
+        <img data-imagem="fotoCapa" alt="Foto da turma">
+      </figure>
+    </section>
+
+    <section id="galeria" class="secao">
+      <header class="secao-topo">
+        <p class="sobretitulo">Galeria</p>
+        <h2 data-campo="tituloGaleria"></h2>
+      </header>
+      <div class="galeria" data-lista="galeria"></div>
+    </section>
+
+    <section id="linha-do-tempo" class="secao">
+      <header class="secao-topo">
+        <p class="sobretitulo">Linha do tempo</p>
+        <h2 data-campo="tituloLinha"></h2>
+      </header>
+      <ol class="linha" data-lista="linhaDoTempo"></ol>
+    </section>
+
+    <section id="turma" class="secao">
+      <header class="secao-topo">
+        <p class="sobretitulo">Turma</p>
+        <h2 data-campo="tituloTurma"></h2>
+      </header>
+      <div class="turma" data-lista="turma"></div>
+    </section>
+
+    <section id="frases" class="secao">
+      <header class="secao-topo">
+        <p class="sobretitulo">Frases</p>
+        <h2 data-campo="tituloFrases"></h2>
+      </header>
+      <div class="frases" data-lista="frases"></div>
+    </section>
+
+    <section id="albuns" class="secao">
+      <header class="secao-topo">
+        <p class="sobretitulo">Álbuns</p>
+        <h2 data-campo="tituloAlbuns"></h2>
+      </header>
+      <div class="albuns" data-lista="albuns"></div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p><span data-campo="escola"></span> · <span data-campo="serie"></span> <span data-campo="letra"></span> · <span data-campo="ano"></span></p>
+  </footer>
+
+  <!-- Barra flutuante de edição -->
+  <div class="barra" role="toolbar" aria-label="Edição">
+    <button id="btn-editar" class="barra-principal">✎ Editar</button>
+    <div class="barra-edicao" hidden>
+      <button id="btn-salvar" class="barra-principal">💾 Salvar e concluir</button>
+      <button id="btn-baixar">Baixar dados</button>
+      <button id="btn-carregar">Carregar dados</button>
+      <button id="btn-descartar">Descartar rascunho</button>
+      <button id="btn-sair">Sair</button>
+    </div>
+  </div>
+  <input type="file" id="arquivo-dados" accept=".js,.json" hidden>
+  <input type="file" id="arquivo-imagem" accept="image/*" hidden>
+
+  <!-- Login -->
+  <dialog id="login" class="janela">
+    <form method="dialog" id="form-login">
+      <h2>Entrar para editar</h2>
+      <p>Digite a senha da turma para editar o caderno.</p>
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" autocomplete="current-password" required>
+      <p class="erro" id="erro-login" hidden>Senha incorreta.</p>
+      <div class="janela-acoes">
+        <button type="button" id="cancelar-login">Cancelar</button>
+        <button type="submit" class="primario">Entrar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Visualizador de fotos e álbuns -->
+  <dialog id="visor" class="visor">
+    <button class="visor-fechar" aria-label="Fechar">×</button>
+    <button class="visor-nav anterior" aria-label="Foto anterior">‹</button>
+    <figure>
+      <img alt="">
+      <figcaption></figcaption>
+    </figure>
+    <button class="visor-nav proxima" aria-label="Próxima foto">›</button>
+  </dialog>
+
+  <div id="mensagem" class="mensagem" role="status" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="data/dados.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
