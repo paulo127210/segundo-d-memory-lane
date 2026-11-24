@@ -198,7 +198,9 @@ body.editando .marco .ferramentas { top: 0; right: 0; }
 .visor { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
 .visor::backdrop { background: rgba(20, 17, 14, .92); }
 .visor figure { margin: 0; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem 4rem; }
-.visor img { max-height: 80vh; max-width: 100%; object-fit: contain; background: #fff; padding: 10px; }
+.visor img, .visor video { max-height: 80vh; max-width: 100%; object-fit: contain; background: #fff; padding: 10px; }
+.visor video { background: #000; padding: 0; }
+.visor [hidden] { display: none; }
 .visor figcaption { color: #f3ead9; font-family: var(--mao); font-size: 1.6rem; margin-top: 1rem; text-align: center; }
 .visor-fechar, .visor-nav { position: fixed; background: none; border: 0; color: #fff; font-size: 2.6rem; line-height: 1; padding: .5rem 1rem; }
 .visor-fechar { top: .5rem; right: .5rem; }

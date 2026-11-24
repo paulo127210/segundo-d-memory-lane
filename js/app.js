@@ -64,6 +64,19 @@
     return src ? src : imagemVazia(editando ? "Clique para escolher uma foto" : "Foto em breve");
   }
 
+  function ehVideo(item) {
+    return !!item && (item.tipo === "video" || /\.(mp4|webm|mov)$/i.test(item.src || ""));
+  }
+
+  function contarItens(itens) {
+    const videos = itens.filter(ehVideo).length;
+    const fotos = itens.length - videos;
+    const partes = [];
+    if (fotos || !videos) partes.push(fotos + (fotos === 1 ? " foto" : " fotos"));
+    if (videos) partes.push(videos + (videos === 1 ? " vídeo" : " vídeos"));
+    return partes.join(" e ");
+  }
+
   function marcarAlterado() {
     alterado = true;
   }
@@ -219,7 +232,7 @@
     albuns(container) {
       (dados.albuns || []).forEach((album, i) => {
         album.fotos = album.fotos || [];
-        const capa = album.fotos.find((f) => f.src);
+        const capa = album.fotos.find((f) => f.src && !ehVideo(f));
         const adicionarFotos = el("button", {
           type: "button",
           texto: "+ Fotos",
@@ -240,7 +253,7 @@
             el("img", { src: fonteImagem(capa ? capa.src : ""), alt: "", loading: "lazy" })
           ]),
           campoItem("h3", album, "titulo"),
-          el("p", { texto: album.fotos.length + (album.fotos.length === 1 ? " foto" : " fotos") }),
+          el("p", { texto: contarItens(album.fotos) }),
           campoItem("p", album, "descricao")
         ]);
         const abrir = (evento) => {
@@ -450,6 +463,9 @@
   const visor = (function () {
     const janela = document.getElementById("visor");
     const img = janela.querySelector("img");
+    const video = el("video", { controls: "", playsinline: "", preload: "metadata" });
+    video.hidden = true;
+    img.after(video);
     const legenda = janela.querySelector("figcaption");
     let fotos = [];
     let indice = 0;
@@ -459,8 +475,18 @@
     function mostrar() {
       const foto = fotos[indice];
       if (!foto) return fechar();
-      img.src = fonteImagem(foto.src);
-      img.alt = foto.legenda || "Foto";
+      video.pause();
+      if (ehVideo(foto)) {
+        img.hidden = true;
+        video.hidden = false;
+        video.src = foto.src;
+      } else {
+        video.hidden = true;
+        video.removeAttribute("src");
+        img.hidden = false;
+        img.src = fonteImagem(foto.src);
+        img.alt = foto.legenda || "Foto";
+      }
       legenda.textContent = foto.legenda || "";
       if (album && editando) {
         legenda.dataset.itemCampo = "legenda";
@@ -481,7 +507,7 @@
       barraEdicao = null;
       if (!album || !editando) return;
       barraEdicao = el("div", { classe: "ferramentas", style: "display:flex;position:fixed;top:1rem;left:1rem;right:auto" }, [
-        el("button", {
+        ehVideo(fotos[indice]) ? null : el("button", {
           type: "button",
           texto: "Trocar foto",
           onclick: () => escolherImagens(false, ([src]) => {
@@ -517,6 +543,7 @@
     }
 
     function fechar() {
+      video.pause();
       if (janela.open) janela.close();
     }
 
@@ -538,6 +565,7 @@
       if (evento.key === "ArrowRight") passo(1);
     });
     janela.addEventListener("close", () => {
+      video.pause();
       if (barraEdicao) barraEdicao.remove();
       barraEdicao = null;
     });

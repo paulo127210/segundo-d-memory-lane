@@ -39,6 +39,10 @@ A senha só libera o modo de edição. O site publicado só muda quando alguém 
 3. Em **Branch**, escolha `main` e a pasta `/ (root)` e salve.
 4. Em alguns minutos o site fica disponível no endereço mostrado nessa página.
 
-## Fotos
+## Fotos e vídeos
 
-As fotos enviadas pelo modo de edição são reduzidas automaticamente para no máximo 1400 px e ficam dentro do `dados.js`. Em um álbum com muitas fotos o arquivo fica grande. Se passar de 25 MB, o envio pelo site do GitHub falha, então coloque as fotos na pasta `img/` e use o caminho (por exemplo `img/festa.jpg`) no lugar da imagem dentro do `dados.js`.
+As fotos e o vídeo trazidos do site antigo (Lovable) ficam na pasta `img/`, e o `dados.js` aponta para eles pelo caminho, por exemplo `img/turma-capa.jpg`.
+
+As fotos enviadas pelo modo de edição são reduzidas automaticamente para no máximo 1400 px e ficam dentro do `dados.js`. Em um álbum com muitas fotos o arquivo fica grande. Se passar de 25 MB, o envio pelo site do GitHub falha, então coloque as fotos na pasta `img/` e use o caminho no lugar da imagem dentro do `dados.js`.
+
+Os álbuns também mostram vídeos. Para colocar um, salve o arquivo `.mp4` na pasta `img/` e acrescente no álbum um item assim: `{ "id": "v1", "src": "img/meu-video.mp4", "tipo": "video", "legenda": "" }`.
