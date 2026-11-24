@@ -12,12 +12,19 @@
   const LISTAS = ["galeria", "linhaDoTempo", "turma", "frases", "albuns"];
 
   let dados = clonar(window.DADOS || {});
+  const VERSAO_PUBLICADA = resumoTexto(JSON.stringify(window.DADOS || {}));
   let copiaAntesDeEditar = null;
   let editando = false;
   let alterado = false;
   let destinoImagem = null; // função que recebe a imagem escolhida
 
   /* ---------- Utilidades ---------- */
+
+  function resumoTexto(texto) {
+    let h = 5381;
+    for (let i = 0; i < texto.length; i++) h = ((h << 5) + h + texto.charCodeAt(i)) | 0;
+    return (h >>> 0).toString(36) + "-" + texto.length;
+  }
 
   function clonar(obj) {
     return JSON.parse(JSON.stringify(obj));
@@ -651,7 +658,7 @@
   document.getElementById("btn-salvar").addEventListener("click", async () => {
     if (document.activeElement && document.activeElement.isContentEditable) document.activeElement.blur();
     try {
-      await banco.gravar(dados);
+      await banco.gravar({ versaoBase: VERSAO_PUBLICADA, dados: dados });
       alterado = false;
       sairEdicao();
       mostrarAvisoRascunho(true);
@@ -770,10 +777,15 @@
     desenharTudo();
     try {
       const rascunho = await banco.ler();
-      if (rascunho) {
-        dados = rascunho;
+      // Rascunhos antigos (sem versão) ou feitos sobre outra versão publicada são descartados,
+      // para o navegador nunca esconder uma atualização enviada ao GitHub.
+      if (rascunho && rascunho.versaoBase === VERSAO_PUBLICADA && rascunho.dados) {
+        dados = rascunho.dados;
         mostrarAvisoRascunho(true);
         desenharTudo();
+      } else if (rascunho) {
+        await banco.apagar();
+        mostrarMensagem("O site foi atualizado. O rascunho antigo deste navegador foi descartado.");
       }
     } catch (erro) {
       // Sem IndexedDB (ex.: navegação privada): o site funciona só com os dados publicados.

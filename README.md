@@ -24,6 +24,8 @@ Dê dois cliques no `index.html`. Para usar o login de edição, abra o site por
 4. Clique em **Salvar e concluir**. As alterações ficam guardadas só neste navegador.
 5. Para publicar, entre em **Editar**, clique em **Baixar dados** e substitua o arquivo `data/dados.js` do projeto pelo que foi baixado. Depois envie para o GitHub.
 
+Quando uma versão nova do `dados.js` é publicada, o navegador descarta sozinho o rascunho antigo e mostra o conteúdo novo. Por isso, baixe e publique suas alterações antes de alguém enviar outra versão.
+
 O botão **Carregar dados** abre um `dados.js` salvo antes. O **Descartar rascunho** apaga o que foi salvo no navegador e volta ao conteúdo publicado.
 
 ## Como trocar a senha
